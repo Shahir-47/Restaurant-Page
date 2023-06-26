@@ -3,10 +3,14 @@ import IntroPic from './img/img.png';
 import Menu from './img/drink.png';
 import Yoda from './img/yoda.png';
 import Concert from './img/concert.png';
-import Vader from './img/darth.jpg';
+import Anakin from './img/vader5.jpg';
+import Vader from './img/vader.jpg';
 import Star from './img/star.svg';
 import Next from './img/next.svg';
 import Back from './img/back.svg';
+import Palps from './img/palps.jpg';
+import luke from './img/luke.jpeg';
+import kenobi from './img/kenobi.jpeg'
 
 const navigationBar = () => {
 
@@ -144,6 +148,8 @@ const overview = () => {
 
 const reviews = () => {
 
+    let currentCardIndex = 0;
+
     const starRating = () => {
 
         const starRating = document.createElement('div');
@@ -158,62 +164,117 @@ const reviews = () => {
         return starRating;
     }
 
-    const reviews = document.createElement('div');
-    reviews.classList.add('reviews');
 
-    const reviewsText = document.createElement('h2');
-    reviewsText.textContent = 'What our Customers Are Saying';
+    const createReviewCard = (cardData) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+      
+        const pfpLink = document.createElement('a');
+        pfpLink.href = cardData.link;
+      
+        const cardImg = document.createElement('img');
+        cardImg.src = cardData.image;
+        cardImg.alt = cardData.name;
+      
+        pfpLink.appendChild(cardImg);
+      
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
+      
+        const cardText = document.createElement('h3');
+        cardText.textContent = cardData.name;
+      
+        const cardRating = starRating();
+      
+        const cardDesc = document.createElement('p');
+        cardDesc.textContent = cardData.review;
+      
+        cardContent.appendChild(cardText);
+        cardContent.appendChild(cardRating);
+        cardContent.appendChild(cardDesc);
+      
+        card.appendChild(pfpLink);
+        card.appendChild(cardContent);
+      
+        return card;
+    };
 
-    const reviewsCards = document.createElement('div');
-    reviewsCards.classList.add('reviews-cards');
+    const reviewBox = () => {
+        const reviews = document.createElement('div');
+        reviews.classList.add('reviews');
+    
+        const reviewsText = document.createElement('h2');
+        reviewsText.textContent = 'What our Customers Are Saying';
+    
+        const reviewsCards = document.createElement('div');
+        reviewsCards.classList.add('reviews-cards');
+    
+        const nextButton = document.createElement('img');
+        nextButton.classList.add('next-button');
+        nextButton.src = Next;
+        nextButton.alt = 'Next review button';
+        nextButton.classList.add('switch-button');
+    
+        const backButton = document.createElement('img');
+        backButton.classList.add('back-button');
+        backButton.src = Back;
+        backButton.alt = 'Back review button';
+        backButton.classList.add('switch-button');
+        reviewsCards.appendChild(backButton);
 
-    const nextButton = document.createElement('img');
-    nextButton.classList.add('next-button');
-    nextButton.src = Next;
-    nextButton.alt = 'Next review button';
-    nextButton.classList.add('switch-button');
+        const luke = createReviewCard(cardData[0]);
+        const palps = createReviewCard(cardData[1]);
+        const anakin = createReviewCard(cardData[2]);
+        const vader = createReviewCard(cardData[3]);
+        const kenobi = createReviewCard(cardData[4]);
+        reviewsCards.appendChild(kenobi);
+    
+        reviewsCards.appendChild(nextButton);
+    
+        const content = document.querySelector('div#content');
+        reviews.appendChild(reviewsText);
+        reviews.appendChild(reviewsCards);
+        content.appendChild(reviews);
+    }
+      
+    const cardData = [
+        {
+            name: 'Luke Skywalker',
+            image: luke,
+            review: "I never thought I'd find such a wretched hive of scum and flavor. But the Galactic Cantina surprised me in the most delightful way. From the moment I stepped in, I felt the Force of culinary delights calling to me. 'That's not just a snack, that's a feast!' I exclaimed as I sampled their diverse menu. And let me tell you, their Youngling Slushies brought back memories of my training days. 'I am a Jedi, like my father before me, and a foodie too!' I proudly declared. So, whether you're a Jedi, a Sith, or just a hungry traveler, the Galactic Cantina is a destination worth venturing to. 'May the forks be with you!'",
+            link: 'https://www.starwars.com/databank/luke-skywalker',
+        },
+        {
+            name: 'Emperor Palpatine',
+            image: Palps,
+            review: "I must say, the Galactic Cantina has a delightful atmosphere. I felt right at home, surrounded by all those potential Sith apprentices. The Tragedy of Darth Plagueis the Wise always works as a great conversation starter. And when it comes to ordering, I couldn't resist the temptation. With a simple command of 'dew it,' I ventured into the delectable dishes that the Cantina had to offer. Their flavors were as dark and irresistible as the dark side of the Force. I couldn't help but savor every bite, knowing that the pathway to culinary abilities some may consider unnatural lay before me. So, if you dare to explore the depths of galactic flavors and embrace your inner Sith foodie, the Galactic Cantina is where you should be!",
+            link: 'https://starwars.fandom.com/wiki/Darth_Sidious',
+        },
+        {
+            name: 'Youngling Slayer 9000',
+            image: Anakin,
+            review: "I must admit, the Galactic Cantina brought back memories from my Jedi training days. The menu was so tempting, it made me feel like wielding my lightsaber again... but this time, to conquer the delicious dishes! The Youngling Slushies were to die for! Just don't worry, fellow diners, I promise I won't bring my saber to the table. Remember, I have the high ground when it comes to savoring these galactic flavors! So, don't try it, culinary amateurs! You underestimate my power to enjoy every bite!  So, join me, and together we shall feast, bringing peace, justice, and security to our taste buds.",
+            link: 'https://www.starwars.com/databank/anakin-skywalker',
+        },
+        {
+            name: 'Darth Vader',
+            image: Vader,
+            review: "I find your lack of flavor disturbing. But fear not, the Galactic Cantina has proven itself worthy of the dark side's appetite. From the moment I entered, I could sense the power of gastronomic delights calling to me. The Force is strong with their menu, offering a range of dishes that satisfy even the most formidable hunger. And yes, I admit, their Youngling Slushies may be a guilty pleasure. Join me on the culinary journey, for together we shall conquer the taste buds of the galaxy. Remember, there is no dessert, only Sith Lord satisfaction!",
+            link: 'https://www.starwars.com/databank/darth-vader',
+        },
+        {
+            name: 'Obi-Wan Kenobi',
+            image: kenobi,
+            review: "Hello there! If you're seeking a culinary adventure in a galaxy far, far away, look no further than the Galactic Cantina. From the moment I entered, I sensed a culinary force awakening within me. The flavors were as bold as my lightsaber strikes, leaving me to exclaim, 'Another happy meal!' But beware, my friends, for navigating the menu requires wisdom. Remember, 'only a master of flavor' can truly appreciate the nuances of each dish. And when it comes to choosing your seat, always remember the importance of the high ground. The Galactic Cantina offers a 'taste from a higher perspective,' ensuring a dining experience that rises above the rest. Now, as I indulge in these gastronomic delights, I can't help but think of the words I once uttered to my dear friend, 'You're the chosen one! You were my brother, Anakin! I loved you.' Let us embrace the power of food to forge new connections and heal old wounds. 'May the forks be with you,' always",
+            link: 'https://www.starwars.com/databank/obi-wan-kenobi',
+        }
 
-    const backButton = document.createElement('img');
-    backButton.classList.add('back-button');
-    backButton.src = Back;
-    backButton.alt = 'Back review button';
-    backButton.classList.add('switch-button');
-    reviewsCards.appendChild(backButton);
+        
+        //Add more card data objects here for additional review cards
+    ];
 
-    // Review 1
-    const card1 = document.createElement('div');
-    card1.classList.add('card');
-    const card1Img = document.createElement('img');
-    card1Img.src = Vader;
-    card1Img.alt = 'Darth Vader';
-    const pfpLink = document.createElement('a');
-    pfpLink.href = 'https://www.starwars.com/databank/darth-vader';
-    pfpLink.appendChild(card1Img);
-    const cardContent = document.createElement('div');
-    cardContent.classList.add('card-content');
-    const card1Text = document.createElement('h3');
-    card1Text.textContent = 'Darth vader';
-    const card1Rating = starRating();
-    const card1Desc = document.createElement('p');
-    const reviewText = "The Cantina was impressive, but their lack of a 'dark side' dessert menu left me feeling a little Vadered.";
-    card1Desc.textContent = reviewText;
+    reviewBox();
 
-    cardContent.appendChild(card1Text);
-    cardContent.appendChild(card1Rating);
-    cardContent.appendChild(card1Desc);
-    card1.appendChild(pfpLink);
-    card1.appendChild(cardContent);
-    reviewsCards.appendChild(card1);
-
-
-
-
-    reviewsCards.appendChild(nextButton);
-
-    const content = document.querySelector('div#content');
-    reviews.appendChild(reviewsText);
-    reviews.appendChild(reviewsCards);
-    content.appendChild(reviews);
 }
 
 
