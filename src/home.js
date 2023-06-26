@@ -3,6 +3,10 @@ import IntroPic from './img/img.png';
 import Menu from './img/drink.png';
 import Yoda from './img/yoda.png';
 import Concert from './img/concert.png';
+import Vader from './img/darth.jpg';
+import Star from './img/star.svg';
+import Next from './img/next.svg';
+import Back from './img/back.svg';
 
 const navigationBar = () => {
 
@@ -138,4 +142,80 @@ const overview = () => {
     content.appendChild(overview);
 };
 
-export { navigationBar, intro, overview };
+const reviews = () => {
+
+    const starRating = () => {
+
+        const starRating = document.createElement('div');
+        starRating.classList.add('star-rating');
+        for (let i = 0; i < 5; i++) {
+            let star = document.createElement('img');
+            star.classList.add('star');
+            star.src = Star;
+            star.alt = 'Review star';
+            starRating.appendChild(star);
+        }
+        return starRating;
+    }
+
+    const reviews = document.createElement('div');
+    reviews.classList.add('reviews');
+
+    const reviewsText = document.createElement('h2');
+    reviewsText.textContent = 'What our Customers Are Saying';
+
+    const reviewsCards = document.createElement('div');
+    reviewsCards.classList.add('reviews-cards');
+
+    const nextButton = document.createElement('img');
+    nextButton.classList.add('next-button');
+    nextButton.src = Next;
+    nextButton.alt = 'Next review button';
+    nextButton.classList.add('switch-button');
+
+    const backButton = document.createElement('img');
+    backButton.classList.add('back-button');
+    backButton.src = Back;
+    backButton.alt = 'Back review button';
+    backButton.classList.add('switch-button');
+    reviewsCards.appendChild(backButton);
+
+    // Review 1
+    const card1 = document.createElement('div');
+    card1.classList.add('card');
+    const card1Img = document.createElement('img');
+    card1Img.src = Vader;
+    card1Img.alt = 'Darth Vader';
+    const pfpLink = document.createElement('a');
+    pfpLink.href = 'https://www.starwars.com/databank/darth-vader';
+    pfpLink.appendChild(card1Img);
+    const cardContent = document.createElement('div');
+    cardContent.classList.add('card-content');
+    const card1Text = document.createElement('h3');
+    card1Text.textContent = 'Darth vader';
+    const card1Rating = starRating();
+    const card1Desc = document.createElement('p');
+    const reviewText = "The Cantina was impressive, but their lack of a 'dark side' dessert menu left me feeling a little Vadered.";
+    card1Desc.textContent = reviewText;
+
+    cardContent.appendChild(card1Text);
+    cardContent.appendChild(card1Rating);
+    cardContent.appendChild(card1Desc);
+    card1.appendChild(pfpLink);
+    card1.appendChild(cardContent);
+    reviewsCards.appendChild(card1);
+
+
+
+
+    reviewsCards.appendChild(nextButton);
+
+    const content = document.querySelector('div#content');
+    reviews.appendChild(reviewsText);
+    reviews.appendChild(reviewsCards);
+    content.appendChild(reviews);
+}
+
+
+
+export { navigationBar, intro, overview, reviews};
