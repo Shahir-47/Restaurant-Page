@@ -10,7 +10,21 @@ import Next from './img/next.svg';
 import Back from './img/back.svg';
 import Palps from './img/palps.jpg';
 import luke from './img/luke.jpeg';
-import kenobi from './img/kenobi.jpeg'
+import kenobi from './img/kenobi.jpeg';
+import general from './img/general.jpg';
+import jar from './img/jar.jpeg';
+import dooku from './img/dooku.png';
+import jinn from './img/jinn.jpg';
+import mace from './img/mace.jpeg';
+import maul from './img/maul.jpg';
+import ahsoka from './img/ahsoka.jpg';
+import yoda from './img/yoda.jpg';
+import tarkin from './img/tarkin.jpg';
+import hutt from './img/hutt.jpg';
+import han from './img/han.jpg';
+import chew from './img/chew.jpg';
+import c3po from './img/c3po.png';
+import r2d2 from './img/r2d2.jpg';
 
 const navigationBar = () => {
 
@@ -227,7 +241,21 @@ const reviews = () => {
         const anakin = createReviewCard(cardData[2]);
         const vader = createReviewCard(cardData[3]);
         const kenobi = createReviewCard(cardData[4]);
-        reviewsCards.appendChild(kenobi);
+        const general = createReviewCard(cardData[5]);
+        const jar = createReviewCard(cardData[6]);
+        const dooku = createReviewCard(cardData[7]);
+        const jinn = createReviewCard(cardData[8]);
+        const mace = createReviewCard(cardData[9]);
+        const maul = createReviewCard(cardData[10]);
+        const ahsoka = createReviewCard(cardData[11]);
+        const yoda = createReviewCard(cardData[12]);
+        const tarkin = createReviewCard(cardData[13]);
+        const hutt = createReviewCard(cardData[14]);
+        const han = createReviewCard(cardData[15]);
+        const chew = createReviewCard(cardData[16]);
+        const c3po = createReviewCard(cardData[17]);
+        const r2d2 = createReviewCard(cardData[18]);
+        reviewsCards.appendChild(r2d2);
     
         reviewsCards.appendChild(nextButton);
     
@@ -248,7 +276,7 @@ const reviews = () => {
             name: 'Emperor Palpatine',
             image: Palps,
             review: "I must say, the Galactic Cantina has a delightful atmosphere. I felt right at home, surrounded by all those potential Sith apprentices. The Tragedy of Darth Plagueis the Wise always works as a great conversation starter. And when it comes to ordering, I couldn't resist the temptation. With a simple command of 'dew it,' I ventured into the delectable dishes that the Cantina had to offer. Their flavors were as dark and irresistible as the dark side of the Force. I couldn't help but savor every bite, knowing that the pathway to culinary abilities some may consider unnatural lay before me. So, if you dare to explore the depths of galactic flavors and embrace your inner Sith foodie, the Galactic Cantina is where you should be!",
-            link: 'https://starwars.fandom.com/wiki/Darth_Sidious',
+            link: 'https://www.starwars.com/databank/emperor-palpatine-darth-sidious',
         },
         {
             name: 'Youngling Slayer 9000',
@@ -267,9 +295,91 @@ const reviews = () => {
             image: kenobi,
             review: "Hello there! If you're seeking a culinary adventure in a galaxy far, far away, look no further than the Galactic Cantina. From the moment I entered, I sensed a culinary force awakening within me. The flavors were as bold as my lightsaber strikes, leaving me to exclaim, 'Another happy meal!' But beware, my friends, for navigating the menu requires wisdom. Remember, 'only a master of flavor' can truly appreciate the nuances of each dish. And when it comes to choosing your seat, always remember the importance of the high ground. The Galactic Cantina offers a 'taste from a higher perspective,' ensuring a dining experience that rises above the rest. Now, as I indulge in these gastronomic delights, I can't help but think of the words I once uttered to my dear friend, 'You're the chosen one! You were my brother, Anakin! I loved you.' Let us embrace the power of food to forge new connections and heal old wounds. 'May the forks be with you,' always",
             link: 'https://www.starwars.com/databank/obi-wan-kenobi',
+        },
+        {
+            name: 'General Grievous',
+            image: general,  
+            review: "Ah, the Galactic Cantina! A most impressive culinary establishment, if I do say so myself. As a connoisseur of fine dining and a collector of lightsabers, I found myself drawn to the eclectic flavors and the inviting atmosphere. The Galactic Cantina truly knows how to cater to those who appreciate the finer things in life. With each bite, I could feel the power of the Force coursing through me, igniting a hunger that only the Cantina's delectable offerings could satisfy. 'It's a trap!' I warned myself, as I sampled their delectable dishes. But to my delight, there was no trap, only a symphony of tastes that would make any droid rejoice. 'Oh, I don't think so!' I exclaimed as I savored their Youngling Slushies. The Cantina's diverse menu, like my collection of lightsabers, offers something for every palate. So, whether you're a Jedi, a Sith, or a general seeking a moment of respite from the battlefield, the Galactic Cantina is a haven where you can indulge in gastronomic pleasures fit for a cyborg of my stature. 'I will deal with this Jedi slime myself!' I declared, referring to the delectable dishes that awaited me. So, grab your blaster and join me for an epic feast at the Galactic Cantina. 'It is time to abandon this hopeless cause and surrender to the flavors!'",
+            link: 'https://www.starwars.com/databank/general-grievous',
+        },
+        {
+            name: 'Darth Jar Jar Binks',
+            image: jar,
+            review: "Mesa gotta tell you, the Galactic Cantina is bombad! It's a place where even clumsy Gungans like mesa can find culinary paradise! Yousa gonna have a yummy tum-tum time! The Cantina's menu is like a big 'ol pot of tasty soup, with flavors from all over the galaxy mixin' together. Mesa tongue's gonna do the happy dance! Mesa recommend tryin' the Gungan Gumbo, it's a real bombad dish! From the first bite, mesa felt like mesa was doin' a bongo dance in my mouth! Mesa thinks mesa in love with the Cantina's food! So, whether yousa a Jedi Knight, a Sith Lord, or just a hungry traveler, the Galactic Cantina has somethin' to satisfy all taste buds! Mesa promise, yousa gonna smile big! Mesa even heard theysa got a drink called the Jar Jar Juice—mesa feels honored! Mesa very humbled! The Cantina's got such a lively atmosphere, with alien decorations and music that makes you wanna bongo your ears off! Mesa can't stop groovin'! Mesa says, Come on over and join the party, because in the Cantina, everybodysa got a place to belong! Yousa gonna have a bombad time!",
+            link: 'https://www.starwars.com/databank/jar-jar-binks',
+        },
+        {
+            name: 'Count Dooku',
+            image: dooku,
+            review: "Ah, the Galactic Cantina, a haven for those seeking refinement and sophistication in their dining experience. As a man of taste and elegance, I must say that the Cantina exceeded my expectations. From the moment I walked in, I sensed an aura of culinary excellence. The ambiance, much like my lightsaber, exuded an elegant glow that set the stage for an unforgettable gastronomic journey. 'I've been looking forward to this' culinary delight. The menu, curated with the precision of a Sith Lord's plotting, offers an array of delectable dishes that rival the finest delicacies in the galaxy. 'Ah, yes, the negotiator,' I thought as I sampled their masterfully crafted creations. Each bite was a symphony of flavors, leaving me to exclaim, 'Impressive. Most impressive.' The Galactic Cantina understands that culinary artistry is a delicate dance, blending ingredients with the grace of a master duelist. So, whether you're a Jedi or a Sith, a droid or a politician, the Cantina's offerings will surely satisfy even the most discerning palate. 'Good. Twice the pride, double the flavor.' So, allow yourself to be seduced by the culinary dark side, and join me at the Galactic Cantina for an epicurean experience fit for a Sith Lord. 'The Force is strong with their menu.'",
+            link: 'https://www.starwars.com/databank/count-dooku',
+        },
+        {
+            name: 'Qui-Gon Jinn',
+            image: jinn,
+            review: "Greetings, fellow gastronomes! The Galactic Cantina beckons like the Force itself, guiding us to a culinary adventure beyond the ordinary. As a Jedi Master and seeker of balance, I must say that the Cantina embodies the harmonious fusion of flavors. 'The ability to taste the Force' is strong here, my friends. From the moment I entered, I felt a wave of gastronomic enlightenment wash over me. 'There's always a bigger meal,' I thought, as I perused their diverse menu. The Cantina's dishes, like a well-crafted lightsaber, are a balance of flavors and textures. Each bite transports you to a galaxy far, far away. 'The Force will be with you, always,' they say, and indeed, it is with every delectable morsel. Whether you're a Jedi, a Sith, or simply a seeker of culinary delights, the Galactic Cantina offers an experience that transcends the ordinary. 'Your focus determines your flavor,' so be prepared to immerse yourself in a gastronomic journey unlike any other. 'I have a bad feeling about this,' you say? Fear not, for the Cantina's delectable creations will banish any doubts and leave you craving more. So, trust in the Force of flavor and join me on this epicurean adventure at the Galactic Cantina. 'May the forks be with you.'",
+            link: 'https://www.starwars.com/databank/qui-gon-jinn',
+        },
+        {
+            name: 'Mace Windu',
+            image: mace,
+            review: "At the Galactic Cantina, the force of flavor is strong. As a Jedi Master, I must say that this culinary haven impressed even my discerning palate. 'This party's over!' for bland and ordinary meals. The Cantina's menu is a lightsaber of taste, igniting a gustatory explosion that rivals the power of the Force. From the first bite, I could sense the harmonious balance of flavors, a true testament to their culinary mastery. 'I sense a great meal in you.' With each dish, the Cantina transports you to distant planets, immersing you in the rich tapestry of galactic cuisine. 'I'm going to end this meal, once and for all,' I declared, fully surrendering to the indulgence. The Cantina's creations are a true force to be reckoned with, enticing even the most stoic Jedi to abandon their dietary restrictions. 'There is no try, only eat!' So, whether you're a Jedi Knight, a Sith Lord, or just a humble food enthusiast, the Galactic Cantina is where you'll find culinary enlightenment. 'Take a seat, young Skywalker,' and savor the dishes that await. Trust in the Cantina's culinary prowess, and you'll find yourself uttering the words, 'This is where the fun begins.' Join me on this flavor-filled journey, and together, we'll bring balance to your taste buds. 'May the forks be with you!'",
+            link: 'https://www.starwars.com/databank/mace-windu',
+        },
+        {
+            name: 'Darth Maul',
+            image: maul,
+            review: "Prepare for a culinary experience that will ignite your taste buds and leave you craving more! The Galactic Cantina, much like the dark side, is seductive and full of flavor. From the moment I stepped foot in this gastronomic sanctuary, I knew I had found my true calling. 'At last, we will reveal ourselves to the foodies. At last, we will have flavor.' The Cantina's menu is a symphony of deliciousness, offering a variety of dishes that will satisfy even the most insatiable appetite. Each bite is a dance of savory sensations, reminiscent of the battles I once fought. 'Fear is the path to the dark side. Fear of blandness, that is.' The Cantina's chefs have mastered the art of culinary combat, infusing their creations with the power of the Force. 'Prepare to taste the wrath of the Sith!' From exotic spices to daring flavor combinations, the Cantina takes your palate on a journey to the edge of the galaxy and back. 'At last, we will feast as we should have!' So, whether you're a Jedi, a Sith, or simply a lover of bold flavors, the Galactic Cantina is where you'll find true culinary mastery. 'Join me, and together we will savor the delectable delights of the dark side. We shall dine like never before.' Embrace the allure of the Cantina and surrender to the power of its tantalizing menu. 'The galaxy will taste our hunger!' May the forks be with you!",
+            link: 'https://www.starwars.com/databank/darth-maul',
+        },
+        {
+            name: 'Ahsoka Tano',
+            image: ahsoka,
+            review: "The Galactic Cantina is more than just a place to satisfy your hunger—it's a culinary adventure that'll awaken the Force within your taste buds! From the moment I walked through the doors, I felt an energy, a vibrant pulse that drew me in. 'Snips' they called me, but the Cantina's dishes were anything but small. Each bite was a burst of flavor, a taste sensation that defied expectation. 'I'm no Jedi, but I know good food when I eat it!' The Cantina's menu is a celebration of diversity, just like the galaxy itself. From savory to sweet, from spicy to mild, there's something for everyone. 'May the forks be with you!' Whether you're a loyal Jedi, a mischievous smuggler, or a hungry traveler, the Cantina's culinary delights will leave you yearning for more. 'We have to keep our wits about us. Trust in the Cantina's menu, we must!' So, grab a seat, indulge in the galactic flavors, and let your taste buds embark on a journey through the stars. 'I am no Jedi, but I am a foodie, and this is where the fun begins.' The Galactic Cantina—where delicious memories are made, and the Force of flavor guides you to culinary bliss. 'Snips out!'",
+            link: 'https://www.starwars.com/databank/ahsoka-tano',
+        },
+        {
+            name: 'Yoda',
+            image: yoda,
+            review: "Ah, Galactic Cantina! Culinary wonders it holds. A foodie's paradise, it is. Taste buds tingling, they will be. Delicious, the dishes are. Savor the flavors, you must. Dagobah Delights, a must-try they are. Immersed in galactic culture, you shall be. Music of the taste buds, it is. Shared passion and culinary wisdom, you will find. Mindful of the Force within your plate, be. Venture to the Cantina, you should. May the forks be with you, hmm!",
+            link: 'https://www.starwars.com/databank/yoda',
+        },
+        {
+            name: 'Grand Moff Tarkin',
+            image: tarkin,
+            review: 'Attention, diners! Grand Moff Tarkin here, presenting a review of the Galactic Cantina. Prepare for an experience of imperial proportions! This Cantina is unlike any other, boasting flavors that command attention and satisfaction. "You may indulge when ready!" Every dish is meticulously crafted, a testament to culinary precision and mastery.',
+            link: 'https://www.starwars.com/databank/grand-moff-tarkin',
+        },
+        {
+            name: 'Jabba the Hutt',
+            image: hutt,
+            review: "Mmm, Galactic Cantina, a feast fit for Jabba! Delicious delights, they serve. Savor the flavors, you will. Exotic dishes, a treat for every appetite. Jabba's taste buds dance with joy! Atmosphere, lively and vibrant. Like the bustling streets of Tatooine, the Cantina buzzes with energy. Music, a rhythmic invitation to indulge. Jabba's tail can't help but sway! Friendly staff, attentive to every need. Service, as smooth as Huttese negotiation. A dining experience that leaves Jabba satisfied. Bring your friends, bring your appetite. In the Cantina, there's room for all. Bon appétit, my friends!",
+            link: 'https://www.starwars.com/databank/jabba-the-hutt',
+        },
+        {
+            name: 'Han Solo',
+            image: han,
+            review: "Alright, listen up! The Galactic Cantina, it's the real deal. If you're looking for a place to unwind and satisfy your taste buds, this is it. The atmosphere, it's got that cool vibe that makes you feel right at home. The menu? Well, let me tell you, it's a starship full of flavors from every corner of the galaxy. From the moment you take that first bite, you know you've hit the jackpot.\n\nThe staff? They're like the smoothest pilots in the galaxy. Quick on their feet, always there when you need 'em. You won't find a better crew anywhere else. And hey, if you're lucky, you might even run into some familiar faces from the Outer Rim.\n\nNow, let's talk drinks. The Cantina knows how to mix 'em. From the classic Corellian ale to some exotic concoctions, they've got you covered. Take a sip, kick back, and let the flavors transport you to a whole new world.\n\nSo, whether you're a scoundrel like me or just a hungry traveler, the Galactic Cantina is the place to be. Trust me, you won't be disappointed. It's got that special something that keeps you coming back for more. May the Force be with you, and the taste buds too!",
+            link: 'https://www.starwars.com/databank/han-solo',
+        },
+        {
+            name: 'Chewbacca',
+            image: chew,
+            review: "Grrrrrrrrrrrrrrr! Hnnnngggggg! Aaaaaaaarrrrrggghhhh!",
+            link: 'https://www.starwars.com/databank/chewbacca',
+        },
+        {
+            name: 'C-3PO',
+            image: c3po,
+            review: "Oh, my circuits! The Galactic Cantina, what a delightful establishment! It's a haven of elegance and refinement, a place where one can appreciate the finer things in life. And yet, amidst the impeccable ambiance, there's always that incessant beeping and whirring of a certain astromech droid that shall remain nameless. R2-D2, I dare say, seems to lack proper etiquette and decorum. Oh, the countless times I've had to endure his impulsive antics and inconvenient interruptions. However, I must admit, the Cantina's menu is simply marvelous, offering a wide range of delectable options to satisfy even the most discerning palates. But let us not forget the most important aspect: the impeccable service provided by the Cantina's staff. They handle the challenges posed by R2-D2's unpredictable behavior with impressive poise and patience. In summary, the Galactic Cantina is a delightful destination, despite the occasional robotic nuisance. It's a place to indulge in the finest culinary delights, all while hoping that R2-D2 doesn't electrocute himself with a malfunctioning drink dispenser... again",
+            link: 'https://www.starwars.com/databank/c-3po',
+        },
+        {
+            name: 'R2-D2',
+            image: r2d2,
+            review: "***  Unfortunately, it seems that R2-D2's comment had to be removed for utilizing a rather colorful language. As much as we appreciate the droid's enthusiasm and unique way of expressing thoughts, we strive to maintain a family-friendly environment here at the Galactic Cantina. We encourage R2-D2 and all our guests to keep the conversations pleasant and suitable for all ages. Thank you for understanding, and may the beeps and boops of joy continue to resonate through our cantina!  ***",
+            link: 'https://www.starwars.com/databank/r2-d2',
         }
-
-        
         //Add more card data objects here for additional review cards
     ];
 

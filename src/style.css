@@ -226,6 +226,7 @@ div#content {
     display: grid;
     grid-template-columns: min-content 1fr;
     align-items: center;
+    width: 95%;
 }
 
 .reviews .card img {
@@ -243,6 +244,7 @@ div#content {
 .reviews .card .card-content h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    font-weight: 100;
 }
 
 .reviews .card .card-content img {
