@@ -183,6 +183,10 @@ div#content {
     border-radius: 17px;
     align-items: center;
     justify-items: center;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .reviews .reviews-cards .switch-button {

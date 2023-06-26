@@ -162,8 +162,6 @@ const overview = () => {
 
 const reviews = () => {
 
-    let currentCardIndex = 0;
-
     const starRating = () => {
 
         const starRating = document.createElement('div');
@@ -178,6 +176,7 @@ const reviews = () => {
         return starRating;
     }
 
+    let currentCardIndex = 0;
 
     const createReviewCard = (cardData) => {
         const card = document.createElement('div');
@@ -214,6 +213,9 @@ const reviews = () => {
     };
 
     const reviewBox = () => {
+
+        let currentCardIndex = 0;
+
         const reviews = document.createElement('div');
         reviews.classList.add('reviews');
     
@@ -234,35 +236,48 @@ const reviews = () => {
         backButton.src = Back;
         backButton.alt = 'Back review button';
         backButton.classList.add('switch-button');
-        reviewsCards.appendChild(backButton);
 
-        const luke = createReviewCard(cardData[0]);
-        const palps = createReviewCard(cardData[1]);
-        const anakin = createReviewCard(cardData[2]);
-        const vader = createReviewCard(cardData[3]);
-        const kenobi = createReviewCard(cardData[4]);
-        const general = createReviewCard(cardData[5]);
-        const jar = createReviewCard(cardData[6]);
-        const dooku = createReviewCard(cardData[7]);
-        const jinn = createReviewCard(cardData[8]);
-        const mace = createReviewCard(cardData[9]);
-        const maul = createReviewCard(cardData[10]);
-        const ahsoka = createReviewCard(cardData[11]);
-        const yoda = createReviewCard(cardData[12]);
-        const tarkin = createReviewCard(cardData[13]);
-        const hutt = createReviewCard(cardData[14]);
-        const han = createReviewCard(cardData[15]);
-        const chew = createReviewCard(cardData[16]);
-        const c3po = createReviewCard(cardData[17]);
-        const r2d2 = createReviewCard(cardData[18]);
-        reviewsCards.appendChild(r2d2);
-    
+        reviewsCards.appendChild(backButton);
+        const card1 = createReviewCard(cardData[currentCardIndex]);
+        reviewsCards.appendChild(card1);
         reviewsCards.appendChild(nextButton);
+
+         // Add event listeners for next and previous buttons
+        nextButton.addEventListener('click', () => {
+            if (currentCardIndex < cardData.length - 1) {
+            currentCardIndex++;
+            updateDisplayedReview();
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            if (currentCardIndex > 0) {
+            currentCardIndex--;
+            updateDisplayedReview();
+            }
+        });
+
+        // Helper function to update the displayed review
+        const updateDisplayedReview = () => {
+            const currentCard = reviewsCards.querySelector('.card');
+            const newCard = createReviewCard(cardData[currentCardIndex]);
+            reviewsCards.replaceChild(newCard, currentCard);
+        };
+
+        const autoRotation = setInterval(() => {
+            if (currentCardIndex < cardData.length - 1) {
+              currentCardIndex++;
+            } else {
+              currentCardIndex = 0;
+            }
+            updateDisplayedReview();
+        }, 5000);
     
         const content = document.querySelector('div#content');
         reviews.appendChild(reviewsText);
         reviews.appendChild(reviewsCards);
         content.appendChild(reviews);
+
     }
       
     const cardData = [
