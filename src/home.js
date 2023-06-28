@@ -276,7 +276,7 @@ const reviews = () => {
         {
             name: 'R2-D2',
             image: r2d2,
-            review: "***  Unfortunately, it seems that R2-D2's comment had to be removed for utilizing a rather colorful language. As much as we appreciate the droid's enthusiasm and unique way of expressing thoughts, we strive to maintain a family-friendly environment here at the Galactic Cantina. We encourage R2-D2 and all our guests to keep the conversations pleasant and suitable for all ages. Thank you for understanding, and may the beeps and boops of joy continue to resonate through our cantina!  ***",
+            review: "  Unfortunately, it seems that R2-D2's comment had to be removed for utilizing a rather colorful language. As much as we appreciate the droid's enthusiasm and unique way of expressing thoughts, we strive to maintain a family-friendly environment here at the Galactic Cantina. We encourage R2-D2 and all our guests to keep the conversations pleasant and suitable for all ages. Thank you for understanding, and may the beeps and boops of joy continue to resonate through our cantina!  ",
             link: 'https://www.starwars.com/databank/r2-d2',
         }
     ];
@@ -317,7 +317,28 @@ const reviews = () => {
         const cardRating = starRating();
       
         const cardDesc = document.createElement('p');
-        cardDesc.textContent = cardData.review;
+
+        if (cardData.name === 'R2-D2') {
+            const text = cardData.review;
+
+            const specialStars = document.createElement('span');
+            specialStars.classList.add('special-stars');
+            specialStars.textContent = '*****';
+
+            const specialText = document.createElement('span');
+            specialText.classList.add('special-text');
+            specialText.textContent = text;
+
+            const specialStars2 = document.createElement('span');
+            specialStars2.classList.add('special-stars');
+            specialStars2.textContent = '*****';
+
+            cardDesc.appendChild(specialStars);
+            cardDesc.appendChild(specialText);
+            cardDesc.appendChild(specialStars2);
+        } else {
+            cardDesc.textContent = cardData.review;
+        }
       
         cardContent.appendChild(cardText);
         cardContent.appendChild(cardRating);
@@ -351,7 +372,7 @@ const reviews = () => {
     
         const backButton = document.createElement('img');
         backButton.classList.add('back-button');
-        backButton.src = Back;
+        backButton.src = Back;createReviewCard
         backButton.alt = 'Back review button';
         backButton.classList.add('disabled-btn');
 
@@ -379,7 +400,7 @@ const reviews = () => {
         const backButton = document.querySelector('.back-button');
         const nextButton = document.querySelector('.next-button');
         let isTransitioning = false;
-        const transitionDelay = 1000;
+        const transitionDelay = 700;
         let switchInterval;
         let lastTransitionTimestamp = 0;
 
