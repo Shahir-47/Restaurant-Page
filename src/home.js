@@ -36,10 +36,16 @@ const navigationBar = () => {
     const logo = document.createElement('img');
     logo.src = Icon;
     logo.alt = 'Galactic Cantina logo';
-    logoBox.appendChild(logo);
+    const logoLink = document.createElement('a');
+    logoLink.href = '#';
+    logoLink.appendChild(logo);
+    logoBox.appendChild(logoLink);
     const logoText = document.createElement('h1');
     logoText.textContent = 'Galactic Cantina';
-    logoBox.appendChild(logoText);
+    const logoLink2 = document.createElement('a');
+    logoLink2.href = '#';
+    logoLink2.appendChild(logoText);
+    logoBox.appendChild(logoLink2);
 
     const navLinks = document.createElement('div');
     navLinks.classList.add('nav-links');
