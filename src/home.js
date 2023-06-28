@@ -162,124 +162,8 @@ const overview = () => {
 
 const reviews = () => {
 
-    const starRating = () => {
+    let currentIndex = 0;
 
-        const starRating = document.createElement('div');
-        starRating.classList.add('star-rating');
-        for (let i = 0; i < 5; i++) {
-            let star = document.createElement('img');
-            star.classList.add('star');
-            star.src = Star;
-            star.alt = 'Review star';
-            starRating.appendChild(star);
-        }
-        return starRating;
-    }
-
-    let currentCardIndex = 0;
-
-    const createReviewCard = (cardData) => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-      
-        const pfpLink = document.createElement('a');
-        pfpLink.href = cardData.link;
-      
-        const cardImg = document.createElement('img');
-        cardImg.src = cardData.image;
-        cardImg.alt = cardData.name;
-      
-        pfpLink.appendChild(cardImg);
-      
-        const cardContent = document.createElement('div');
-        cardContent.classList.add('card-content');
-      
-        const cardText = document.createElement('h3');
-        cardText.textContent = cardData.name;
-      
-        const cardRating = starRating();
-      
-        const cardDesc = document.createElement('p');
-        cardDesc.textContent = cardData.review;
-      
-        cardContent.appendChild(cardText);
-        cardContent.appendChild(cardRating);
-        cardContent.appendChild(cardDesc);
-      
-        card.appendChild(pfpLink);
-        card.appendChild(cardContent);
-      
-        return card;
-    };
-
-    const reviewBox = () => {
-
-        let currentCardIndex = 0;
-
-        const reviews = document.createElement('div');
-        reviews.classList.add('reviews');
-    
-        const reviewsText = document.createElement('h2');
-        reviewsText.textContent = 'What our Customers Are Saying';
-    
-        const reviewsCards = document.createElement('div');
-        reviewsCards.classList.add('reviews-cards');
-    
-        const nextButton = document.createElement('img');
-        nextButton.classList.add('next-button');
-        nextButton.src = Next;
-        nextButton.alt = 'Next review button';
-        nextButton.classList.add('switch-button');
-    
-        const backButton = document.createElement('img');
-        backButton.classList.add('back-button');
-        backButton.src = Back;
-        backButton.alt = 'Back review button';
-        backButton.classList.add('switch-button');
-
-        reviewsCards.appendChild(backButton);
-        const card1 = createReviewCard(cardData[currentCardIndex]);
-        reviewsCards.appendChild(card1);
-        reviewsCards.appendChild(nextButton);
-
-         // Add event listeners for next and previous buttons
-        nextButton.addEventListener('click', () => {
-            if (currentCardIndex < cardData.length - 1) {
-            currentCardIndex++;
-            updateDisplayedReview();
-            }
-        });
-
-        backButton.addEventListener('click', () => {
-            if (currentCardIndex > 0) {
-            currentCardIndex--;
-            updateDisplayedReview();
-            }
-        });
-
-        // Helper function to update the displayed review
-        const updateDisplayedReview = () => {
-            const currentCard = reviewsCards.querySelector('.card');
-            const newCard = createReviewCard(cardData[currentCardIndex]);
-            reviewsCards.replaceChild(newCard, currentCard);
-        };
-
-        const autoRotation = setInterval(() => {
-            if (currentCardIndex < cardData.length - 1) {
-              currentCardIndex++;
-            } else {
-              currentCardIndex = 0;
-            }
-            updateDisplayedReview();
-        }, 5000);
-    
-        const content = document.querySelector('div#content');
-        reviews.appendChild(reviewsText);
-        reviews.appendChild(reviewsCards);
-        content.appendChild(reviews);
-
-    }
-      
     const cardData = [
         {
             name: 'Luke Skywalker',
@@ -395,11 +279,189 @@ const reviews = () => {
             review: "***  Unfortunately, it seems that R2-D2's comment had to be removed for utilizing a rather colorful language. As much as we appreciate the droid's enthusiasm and unique way of expressing thoughts, we strive to maintain a family-friendly environment here at the Galactic Cantina. We encourage R2-D2 and all our guests to keep the conversations pleasant and suitable for all ages. Thank you for understanding, and may the beeps and boops of joy continue to resonate through our cantina!  ***",
             link: 'https://www.starwars.com/databank/r2-d2',
         }
-        //Add more card data objects here for additional review cards
     ];
 
-    reviewBox();
+    const starRating = () => {
 
+        const starRating = document.createElement('div');
+        starRating.classList.add('star-rating');
+        for (let i = 0; i < 5; i++) {
+            let star = document.createElement('img');
+            star.classList.add('star');
+            star.src = Star;
+            star.alt = 'Review star';
+            starRating.appendChild(star);
+        }
+        return starRating;
+    }
+
+    const createReviewCard = (cardData) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+      
+        const pfpLink = document.createElement('a');
+        pfpLink.href = cardData.link;
+      
+        const cardImg = document.createElement('img');
+        cardImg.src = cardData.image;
+        cardImg.alt = cardData.name;
+      
+        pfpLink.appendChild(cardImg);
+      
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
+      
+        const cardText = document.createElement('h3');
+        cardText.textContent = cardData.name;
+      
+        const cardRating = starRating();
+      
+        const cardDesc = document.createElement('p');
+        cardDesc.textContent = cardData.review;
+      
+        cardContent.appendChild(cardText);
+        cardContent.appendChild(cardRating);
+        cardContent.appendChild(cardDesc);
+      
+        card.appendChild(pfpLink);
+        card.appendChild(cardContent);
+      
+        return card;
+    };
+
+    const reviewBox = () => {
+
+        const reviews = document.createElement('div');
+        reviews.classList.add('reviews');
+    
+        const reviewsText = document.createElement('h2');
+        reviewsText.textContent = 'What our Customers Are Saying';
+    
+        const reviewsCards = document.createElement('div');
+        reviewsCards.classList.add('reviews-cards');
+    
+        const nextButton = document.createElement('img');
+        nextButton.classList.add('next-button');
+        nextButton.src = Next;
+        nextButton.alt = 'Next review button';
+        nextButton.classList.add('switch-button');
+
+        const cardWrapper = document.createElement('div');
+        cardWrapper.classList.add('card-wrapper');
+    
+        const backButton = document.createElement('img');
+        backButton.classList.add('back-button');
+        backButton.src = Back;
+        backButton.alt = 'Back review button';
+        backButton.classList.add('disabled-btn');
+
+        reviewsCards.appendChild(backButton);
+
+        for (let i = 0; i < cardData.length; i++) {
+            const card = createReviewCard(cardData[i]);
+            cardWrapper.appendChild(card);
+        }
+
+        reviewsCards.appendChild(cardWrapper);
+        reviewsCards.appendChild(nextButton);
+    
+        const content = document.querySelector('div#content');
+        reviews.appendChild(reviewsText);
+        reviews.appendChild(reviewsCards);
+        content.appendChild(reviews);
+
+    }
+
+    const switchCards = () => {
+        const cardsWrapper = document.querySelector('.card-wrapper');
+        const cardWidth = cardsWrapper.getBoundingClientRect().width + 32;
+        console.log(cardWidth);
+        const backButton = document.querySelector('.back-button');
+        const nextButton = document.querySelector('.next-button');
+
+        const enableButtons = () => {
+            if (currentIndex === 0) {
+                backButton.classList.remove("switch-button");
+                backButton.classList.add("disabled-btn");
+            } else if (currentIndex === cardData.length - 1) {
+                nextButton.classList.remove("switch-button");
+                nextButton.classList.add("disabled-btn");
+            } else {
+                backButton.classList.remove("disabled-btn");
+                nextButton.classList.remove("disabled-btn");
+                backButton.classList.add("switch-button");
+                nextButton.classList.add("switch-button");
+            }
+        };
+
+        const scrollLeft = () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                enableButtons();
+                cardsWrapper.scrollBy(-cardWidth, 0);
+            } else {
+                enableButtons();
+            }
+        };
+    
+        const scrollRight = () => {
+          if (currentIndex < cardData.length - 1) {
+                currentIndex++;
+                enableButtons();
+                cardsWrapper.scrollBy(cardWidth, 0);
+          } else {
+                enableButtons();
+          }
+        };
+
+    
+        backButton.addEventListener('click', scrollLeft);
+        nextButton.addEventListener('click', scrollRight);
+    };
+    
+
+    // const switchCards = () => {
+    //     //Event listeners for next and previous buttons
+    //     const cardsWrapper = document.querySelector('.card-wrapper');
+    //     let wrapperWidth = cardsWrapper.offsetWidth;
+
+    //     // Add event listeners for next and previous buttons
+    //     const nextButton = document.querySelector('.next-button');
+    //     nextButton.addEventListener('click', () => {
+    //         wrapperWidth = -wrapperWidth;
+    //         cardsWrapper.classList.add('card-scroll')
+    //         // cardsWrapper.style.transform = `translateX(${wrapperWidth}px)`
+    //         // cardsWrapper.classList.add('card-wrapper')
+    //     });
+
+    //     // backButton.addEventListener('click', () => {
+    //     //     if (currentCardIndex > 0) {
+    //     //     currentCardIndex--;
+    //     //     updateDisplayedReview();
+    //     //     }
+    //     // });
+
+    //     // Helper function to update the displayed review
+    //     // const updateDisplayedReview = () => {
+    //     //     const currentCard = reviewsCards.querySelector('.card');
+    //     //     const newCard = createReviewCard(cardData[currentCardIndex]);
+    //     //     reviewsCards.replaceChild(newCard, currentCard);
+    //     // };
+
+    //     // const autoRotation = setInterval(() => {
+    //     //     if (currentCardIndex < cardData.length - 1) {
+    //     //       currentCardIndex++;
+    //     //     } else {
+    //     //       currentCardIndex = 0;
+    //     //     }
+    //     //     updateDisplayedReview();
+    //     // }, 5000);
+    //     }
+      
+    // Display the first review and setup a container for the review cards
+    reviewBox();
+    // Event listeners for next and previous buttons
+    switchCards();
 }
 
 
