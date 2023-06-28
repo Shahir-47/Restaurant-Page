@@ -395,6 +395,20 @@ const reviews = () => {
         const content = document.querySelector('div#content');
         reviews.appendChild(reviewsText);
         reviews.appendChild(reviewsCards);
+
+        const moreReviews = document.createElement('a');
+        moreReviews.classList.add('more-reviews');
+        moreReviews.href = '#';
+        const moreReviewsLink = document.createElement('p');
+        moreReviewsLink.textContent = 'See All Reviews';
+        const moreReviewsImg = document.createElement('img');
+        moreReviewsImg.src = Next;
+
+        moreReviews.appendChild(moreReviewsLink);
+        moreReviews.appendChild(moreReviewsImg);
+        
+        reviews.appendChild(moreReviews);
+
         content.appendChild(reviews);
 
     }
