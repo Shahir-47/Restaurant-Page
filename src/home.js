@@ -378,7 +378,12 @@ const reviews = () => {
         console.log(cardWidth);
         const backButton = document.querySelector('.back-button');
         const nextButton = document.querySelector('.next-button');
+        let isTransitioning = false;
+        const transitionDelay = 1000;
+        let switchInterval;
+        let lastTransitionTimestamp = 0;
 
+        // Disable the previous button or the next button when the first card or last card is displayed respectively
         const enableButtons = () => {
             if (currentIndex === 0) {
                 backButton.classList.remove("switch-button");
@@ -395,68 +400,96 @@ const reviews = () => {
         };
 
         const scrollLeft = () => {
-            if (currentIndex > 0) {
+            // Check if the cards are currently transitioning and avoid scrolling beyond the first card
+            if (!isTransitioning && currentIndex > 0) {
+                const currentTimestamp = Date.now();
+                // Check if the last transition was less than 1 second ago
+                //  Otherwise, rapid clicks will ruin the transition of which card to display
+                if (currentTimestamp - lastTransitionTimestamp < transitionDelay) {
+                    return; // Ignore rapid consecutive clicks
+                }
+                isTransitioning = true;
                 currentIndex--;
                 enableButtons();
-                cardsWrapper.scrollBy(-cardWidth, 0);
+                // Scroll smoothly and slowly rather than rapidly jumping to the previous card
+                const scrollOptions = {
+                    left: cardsWrapper.scrollLeft - cardWidth,
+                    behavior: "smooth"
+                };
+                cardsWrapper.scrollTo(scrollOptions);
+                restartSwitchInterval();
+                // Prevent rapid consecutive clicks by stopping the buttons from working for 1 second
+                setTimeout(() => {
+                    isTransitioning = false;
+                  }, transitionDelay);
             } else {
+                // If the cards are transitioning or the first card is already displayed, disable the previous button
                 enableButtons();
             }
         };
-    
+
         const scrollRight = () => {
-          if (currentIndex < cardData.length - 1) {
+            // Check if the cards are currently transitioning and avoid scrolling beyond the last card
+            if (!isTransitioning && currentIndex < cardData.length - 1) {
+                const currentTimestamp = Date.now();
+                // Check if the last transition was less than 1 second ago
+                //  Otherwise, rapid clicks will ruin the transition of which card to display
+                if (currentTimestamp - lastTransitionTimestamp < transitionDelay) {
+                    return; // Ignore rapid consecutive clicks
+                }
+                isTransitioning = true;
                 currentIndex++;
                 enableButtons();
-                cardsWrapper.scrollBy(cardWidth, 0);
-          } else {
+                // Scroll smoothly and slowly rather than rapidly jumping to the next card
+                const scrollOptions = {
+                    left: cardsWrapper.scrollLeft + cardWidth,
+                    behavior: "smooth"
+                };
+                cardsWrapper.scrollTo(scrollOptions);
+                restartSwitchInterval();
+                // Prevent rapid consecutive clicks by stopping the buttons from working for 1 second
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, transitionDelay);
+            } else {
+                // If the cards are transitioning or the last card is already displayed, disable the next button
                 enableButtons();
-          }
+            }
         };
 
-    
-        backButton.addEventListener('click', scrollLeft);
-        nextButton.addEventListener('click', scrollRight);
+        const restartSwitchInterval = () => {
+            clearInterval(switchInterval);
+            switchInterval = setInterval(scrollRight, 5000);
+        };
+        
+        const stopSwitchInterval = () => {
+            clearInterval(switchInterval);
+        };
+
+        backButton.addEventListener("click", () => {
+            scrollLeft();
+            stopSwitchInterval(); // Stop automatic switching when clicking the buttons
+          });
+        
+        nextButton.addEventListener("click", () => {
+            scrollRight();
+            stopSwitchInterval(); // Stop automatic switching when clicking the buttons
+        });
+        
+        // Start automatic switching
+        restartSwitchInterval();
+          
+        // Stop automatic switching when hovering over the cards
+        cardsWrapper.addEventListener("mouseover", () => {
+            console.log('hovering');
+            clearInterval(switchInterval);
+        });
+
+        // Resume automatic switching when not hovering over the cards
+        cardsWrapper.addEventListener("mouseout", () => {
+            switchInterval = setInterval(scrollRight, 5000);
+        });
     };
-    
-
-    // const switchCards = () => {
-    //     //Event listeners for next and previous buttons
-    //     const cardsWrapper = document.querySelector('.card-wrapper');
-    //     let wrapperWidth = cardsWrapper.offsetWidth;
-
-    //     // Add event listeners for next and previous buttons
-    //     const nextButton = document.querySelector('.next-button');
-    //     nextButton.addEventListener('click', () => {
-    //         wrapperWidth = -wrapperWidth;
-    //         cardsWrapper.classList.add('card-scroll')
-    //         // cardsWrapper.style.transform = `translateX(${wrapperWidth}px)`
-    //         // cardsWrapper.classList.add('card-wrapper')
-    //     });
-
-    //     // backButton.addEventListener('click', () => {
-    //     //     if (currentCardIndex > 0) {
-    //     //     currentCardIndex--;
-    //     //     updateDisplayedReview();
-    //     //     }
-    //     // });
-
-    //     // Helper function to update the displayed review
-    //     // const updateDisplayedReview = () => {
-    //     //     const currentCard = reviewsCards.querySelector('.card');
-    //     //     const newCard = createReviewCard(cardData[currentCardIndex]);
-    //     //     reviewsCards.replaceChild(newCard, currentCard);
-    //     // };
-
-    //     // const autoRotation = setInterval(() => {
-    //     //     if (currentCardIndex < cardData.length - 1) {
-    //     //       currentCardIndex++;
-    //     //     } else {
-    //     //       currentCardIndex = 0;
-    //     //     }
-    //     //     updateDisplayedReview();
-    //     // }, 5000);
-    //     }
       
     // Display the first review and setup a container for the review cards
     reviewBox();
