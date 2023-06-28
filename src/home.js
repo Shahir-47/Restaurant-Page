@@ -396,6 +396,8 @@ const reviews = () => {
         reviews.appendChild(reviewsText);
         reviews.appendChild(reviewsCards);
 
+        const reviewContainer = document.createElement('div');
+        reviewContainer.classList.add('review-container');
         const moreReviews = document.createElement('a');
         moreReviews.classList.add('more-reviews');
         moreReviews.href = '#';
@@ -407,7 +409,9 @@ const reviews = () => {
         moreReviews.appendChild(moreReviewsLink);
         moreReviews.appendChild(moreReviewsImg);
         
-        reviews.appendChild(moreReviews);
+        reviewContainer.appendChild(moreReviews);
+        
+        reviews.appendChild(reviewContainer);
 
         content.appendChild(reviews);
 
