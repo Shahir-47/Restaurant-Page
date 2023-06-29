@@ -29,6 +29,7 @@ import Phone from './img/phone.svg';
 import Tel from './img/tel.svg';
 import Fax from './img/fax.svg';
 import MapLocation from './img/map.jpg';
+import GitHub from './img/git.svg';
 
 const navigationBar = () => {
 
@@ -770,8 +771,26 @@ const contact = () => {
 
     contactTopLeft.appendChild(operatingHours);
 
+    const moreInfo = document.createElement('div');
+    moreInfo.classList.add('more-info');
 
+    const moreInfo1 = document.createElement('p');
+    moreInfo1.textContent = 'For more information,';
 
+    const moreInfo2 = document.createElement('p');
+    moreInfo2.textContent = 'please visit our ';
+
+    const moreInfoLink = document.createElement('a');
+    moreInfoLink.classList.add('more-info-link');
+    moreInfoLink.href = '#';
+    moreInfoLink.textContent = 'FAQ page';
+
+    moreInfo2.appendChild(moreInfoLink);
+
+    moreInfo.appendChild(moreInfo1);
+    moreInfo.appendChild(moreInfo2);
+
+    contactTopLeft.appendChild(moreInfo);
 
     contactTop.appendChild(contactTopLeft);
     contactTop.appendChild(Address);
@@ -783,5 +802,42 @@ const contact = () => {
 
 };
 
+const footer = () => {
+    const footer = document.createElement('footer');
+    footer.classList.add('footer');
 
-export { navigationBar, intro, overview, reviews, contact};
+    const gitHubProfile = document.createElement('a');
+    gitHubProfile.href = 'https://github.com/Shahir-47';
+
+    const gitHubProfileImg = document.createElement('img');
+    gitHubProfileImg.src = GitHub;
+    gitHubProfileImg.alt = 'gitHub Logo';
+    
+
+    const gitHubProfileText = document.createElement('p');
+    const atSymbol = document.createElement('span');
+    atSymbol.classList.add('at-symbol');
+    atSymbol.textContent = '@';
+    const username = document.createElement('span');
+    username.textContent = 'Shahir-47';
+    gitHubProfileText.appendChild(atSymbol);
+    gitHubProfileText.appendChild(username);
+    
+    gitHubProfile.appendChild(gitHubProfileImg);
+    gitHubProfile.appendChild(gitHubProfileText);
+
+    const seperator = document.createElement('p');
+    seperator.textContent = '|';
+
+    const gitHubRepo = document.createElement('a');
+    gitHubRepo.href = 'https://github.com/Shahir-47/Restaurant-Page';
+    gitHubRepo.textContent = 'Source Code';
+
+    footer.appendChild(gitHubProfile);
+    footer.appendChild(seperator);
+    footer.appendChild(gitHubRepo);
+
+    document.querySelector('div#content').appendChild(footer);
+}
+
+export { navigationBar, intro, overview, reviews, contact, footer};
