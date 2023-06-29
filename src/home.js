@@ -25,6 +25,10 @@ import han from './img/han.jpg';
 import chew from './img/chew.jpg';
 import c3po from './img/c3po.png';
 import r2d2 from './img/r2d2.jpg';
+import Phone from './img/phone.svg';
+import Tel from './img/tel.svg';
+import Fax from './img/fax.svg';
+import MapLocation from './img/map.jpg';
 
 const navigationBar = () => {
 
@@ -492,10 +496,22 @@ const reviews = () => {
                 };
                 cardsWrapper.scrollTo(scrollOptions);
                 restartSwitchInterval();
+
                 // Prevent rapid consecutive clicks by stopping the buttons from working for 1 second
                 setTimeout(() => {
                     isTransitioning = false;
                 }, transitionDelay);
+            } else if (currentIndex === cardData.length - 1) {
+                // If the last card is displayed, scroll to the first card
+                const scrollOptions = {
+                    left: 0,
+                    behavior: "smooth"
+                };
+                cardsWrapper.scrollTo(scrollOptions);
+                currentIndex = 0;
+                enableButtons();
+                nextButton.classList.remove("disabled-btn");
+                nextButton.classList.add("switch-button");
             } else {
                 // If the cards are transitioning or the last card is already displayed, disable the next button
                 enableButtons();
@@ -512,13 +528,17 @@ const reviews = () => {
         };
 
         backButton.addEventListener("click", () => {
-            scrollLeft();
-            stopSwitchInterval(); // Stop automatic switching when clicking the buttons
+            if (currentIndex > 0) {
+                scrollLeft();
+                stopSwitchInterval();
+            } // Stop automatic switching when clicking the buttons
           });
         
         nextButton.addEventListener("click", () => {
-            scrollRight();
-            stopSwitchInterval(); // Stop automatic switching when clicking the buttons
+            if (currentIndex < cardData.length - 1) {
+                scrollRight();
+                stopSwitchInterval();
+            }
         });
         
         // Start automatic switching
@@ -526,13 +546,28 @@ const reviews = () => {
           
         // Stop automatic switching when hovering over the cards
         cardsWrapper.addEventListener("mouseover", () => {
-            console.log('hovering');
             clearInterval(switchInterval);
         });
 
         // Resume automatic switching when not hovering over the cards
         cardsWrapper.addEventListener("mouseout", () => {
-            switchInterval = setInterval(scrollRight, 5000);
+            console.log("Mouse out");
+            switchInterval = setInterval(() => {
+                if (currentIndex === cardData.length - 1) {
+                    // If the last card is displayed, scroll to the first card
+                    const scrollOptions = {
+                        left: 0,
+                        behavior: "smooth"
+                    };
+                    cardsWrapper.scrollTo(scrollOptions);
+                    currentIndex = 0;
+                    enableButtons();
+                    nextButton.classList.remove("disabled-btn");
+                    nextButton.classList.add("switch-button");
+                } else {
+                    scrollRight();
+                }
+            }, 5000);
         });
     };
       
@@ -542,6 +577,211 @@ const reviews = () => {
     switchCards();
 }
 
+const contact = () => {
+    const contact = document.createElement('div');
+    contact.classList.add('contact');
+
+    //-------------------Contact Details:---------------------------------------------
+    const contactTop = document.createElement('div');
+    contactTop.classList.add('contact-top');
+
+    const contactTopLeft = document.createElement('div');
+    contactTopLeft.classList.add('contact-left');
+
+    const contactText = document.createElement('div');
+    contactText.classList.add('contact-text');
+    const contactTextTitle = document.createElement('h2');
+    contactTextTitle.textContent = 'Contact Information';
+
+    //-------------------Phone Number---------------------------------------------
+
+    const contactTextPhone = document.createElement('a');
+    contactTextPhone.classList.add('contact-text-desc');
+
+    const contactTextPhoneImg = document.createElement('img');
+    contactTextPhoneImg.src = Phone;
+    contactTextPhoneImg.alt = 'Phone icon';
+
+    const contactTextPhoneText = document.createElement('div');
+    const contactTextPhoneText1 = document.createElement('span');
+    contactTextPhoneText1.textContent = 'Phone: ';
+    const contactTextPhoneText2 = document.createElement('span');
+    contactTextPhoneText2.textContent = '+ ';
+    contactTextPhoneText2.classList.add('contact-text-sign');
+    const contactTextPhoneText3 = document.createElement('span');
+    contactTextPhoneText3.textContent = '1 530-716-9062';
+
+    contactTextPhoneText.appendChild(contactTextPhoneText1);
+    contactTextPhoneText.appendChild(contactTextPhoneText2);
+    contactTextPhoneText.appendChild(contactTextPhoneText3);
+
+    contactTextPhone.appendChild(contactTextPhoneImg);
+    contactTextPhone.appendChild(contactTextPhoneText);
+
+    //---------------------Telephone NUmber----------------------------------
+    const contactTextTel = document.createElement('a');
+    contactTextTel.classList.add('contact-text-desc');
+    
+    const contactTextTelImg = document.createElement('img');
+    contactTextTelImg.src = Tel;
+    contactTextTelImg.alt = 'Tel icon';
+
+    const contactTextTelText = document.createElement('div');
+    const contactTextTelText1 = document.createElement('span');
+    contactTextTelText1.textContent = 'Tel: ';
+    const contactTextTelText2 = document.createElement('span');
+    contactTextTelText2.textContent = '+ ';
+    contactTextTelText2.classList.add('contact-text-sign');
+    const contactTextTelText3 = document.createElement('span');
+    contactTextTelText3.textContent = '1 530-716-9062';
+
+    contactTextTelText.appendChild(contactTextTelText1);
+    contactTextTelText.appendChild(contactTextTelText2);
+    contactTextTelText.appendChild(contactTextTelText3);
+
+    contactTextTel.appendChild(contactTextTelImg);
+    contactTextTel.appendChild(contactTextTelText);
+
+    //---------------------Fax Number---------------------------------
+    const contactTextFax = document.createElement('a');
+    contactTextFax.classList.add('contact-text-desc');
+
+    const contactTextFaxImg = document.createElement('img');
+    contactTextFaxImg.src = Fax;
+    contactTextFaxImg.alt = 'Fax icon';
+
+    const contactTextFaxText = document.createElement('div');
+    const contactTextFaxText1 = document.createElement('span');
+    contactTextFaxText1.textContent = 'Fax: ';
+    const contactTextFaxText2 = document.createElement('span');
+    contactTextFaxText2.textContent = '+ ';
+    contactTextFaxText2.classList.add('contact-text-sign');
+    const contactTextFaxText3 = document.createElement('span');
+    contactTextFaxText3.textContent = '1 530-716-9062';
+
+    contactTextFaxText.appendChild(contactTextFaxText1);
+    contactTextFaxText.appendChild(contactTextFaxText2);
+    contactTextFaxText.appendChild(contactTextFaxText3);
+
+    contactTextFax.appendChild(contactTextFaxImg);
+    contactTextFax.appendChild(contactTextFaxText);
+
+    //---------------------Contact Details complete here---------------------------------
+
+    contactText.appendChild(contactTextTitle);
+    contactText.appendChild(contactTextPhone);
+    contactText.appendChild(contactTextTel);
+    contactText.appendChild(contactTextFax);
+
+    contactTopLeft.appendChild(contactText);
+
+    //---------------------Address---------------------------------
+
+    const Address = document.createElement('div');
+    Address.classList.add('address');
+
+    const AddressTitle = document.createElement('h2');
+    AddressTitle.textContent = 'Address';
+
+    const AddressMap = document.createElement('img');
+    AddressMap.src = MapLocation;
+    AddressMap.alt = 'Location of Galactic Cantina';
+
+    const AddressText = document.createElement('div');
+    AddressText.classList.add('address-text');
+
+    const AddressText1 = document.createElement('p');
+    AddressText1.textContent = 'Hyperlane Avenue';
+
+    const AddressText2 = document.createElement('div');
+    AddressText2.classList.add('address-text-desc');
+    const city = document.createElement('p');
+    city.textContent = 'Galactic City';
+    const state = document.createElement('p');
+    state.textContent = 'Galactic Republic 10000';
+    AddressText2.appendChild(city);
+    AddressText2.appendChild(state);
+
+    const AddressText3 = document.createElement('div');
+    AddressText3.classList.add('address-text-desc');
+    const country = document.createElement('p');
+    country.textContent = 'Coruscant';
+    const planet = document.createElement('p');
+    planet.textContent = 'Corellia';
+    AddressText3.appendChild(country);
+    AddressText3.appendChild(planet);
+
+    const AddressText4 = document.createElement('div');
+    AddressText4.classList.add('address-text-desc');
+    const solarSystem = document.createElement('p');
+    solarSystem.textContent = 'Corellian System';
+    const xcoors = document.createElement('p');
+    xcoors.textContent = '284.567';
+    const ycoors = document.createElement('p');
+    ycoors.textContent = '-12.345';
+    AddressText4.appendChild(solarSystem);
+    AddressText4.appendChild(xcoors);
+    AddressText4.appendChild(ycoors);
+
+    AddressText.appendChild(AddressText1);
+    AddressText.appendChild(AddressText2);
+    AddressText.appendChild(AddressText3);
+    AddressText.appendChild(AddressText4);
+
+    Address.appendChild(AddressTitle);
+    Address.appendChild(AddressMap);
+    Address.appendChild(AddressText);
+
+ //-------------------------Operating Hours---------------------------------
+
+    const operatingHours = document.createElement('div');
+    operatingHours.classList.add('operating-hours');
+
+    const operatingHoursTitle = document.createElement('h2');
+    operatingHoursTitle.classList.add('operating-hours-title');
+    operatingHoursTitle.textContent = 'Operating Hours';
+
+    const operatingHoursText = document.createElement('div');
+    operatingHoursText.classList.add('operating-hours-text');
+
+    const operatingHoursText1 = document.createElement('div');
+    operatingHoursText1.classList.add('operating-hours-text-desc');
+    const operatingDays = document.createElement('p');
+    operatingDays.textContent = 'Sunday - Thursday';
+    const operatingTime = document.createElement('p');
+    operatingTime.textContent = '9:00 AM - 12:00 AM';
+    operatingHoursText1.appendChild(operatingDays);
+    operatingHoursText1.appendChild(operatingTime);
+
+    const operatingHoursText2 = document.createElement('div');
+    operatingHoursText2.classList.add('operating-hours-text-desc');
+    const operatingDays2 = document.createElement('p');
+    operatingDays2.textContent = 'Friday - Saturday';
+    const operatingTime2 = document.createElement('p');
+    operatingTime2.textContent = '10:00 AM - 3:00 AM';
+    operatingHoursText2.appendChild(operatingDays2);
+    operatingHoursText2.appendChild(operatingTime2);
+
+    operatingHoursText.appendChild(operatingHoursText1);
+    operatingHoursText.appendChild(operatingHoursText2);
+
+    operatingHours.appendChild(operatingHoursTitle);
+    operatingHours.appendChild(operatingHoursText);
+
+    contactTopLeft.appendChild(operatingHours);
 
 
-export { navigationBar, intro, overview, reviews};
+
+
+    contactTop.appendChild(contactTopLeft);
+    contactTop.appendChild(Address);
+    contact.appendChild(contactTop);
+
+    
+
+    document.querySelector('div#content').appendChild(contact);
+
+};
+
+
+export { navigationBar, intro, overview, reviews, contact};
