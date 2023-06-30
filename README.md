@@ -94,7 +94,7 @@ Since the Restaurant-Page application was developed using npm and webpack, you w
 The Restaurant-Page application can be used to explore the various sections of the Galactic Cantina restaurant. The application can be accessed online at: [https://shahir-47.github.io/Restaurant-Page/](https://shahir-47.github.io/Restaurant-Page/)
 
 ## Credits
-- Game developed by [Shahir Ahmed](https://github.com/shahir-47)
+- Developed by [Shahir Ahmed](https://github.com/shahir-47)
 - Source code available on [GitHub](https://github.com/shahir-47/Restaurant-Page)
 
 ## Acknowledgements
