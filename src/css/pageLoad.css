@@ -1,15 +1,15 @@
 @font-face {
     font-family: 'jedi outline';
-    src: url(../../src/assets/font/Starjhol.ttf);
+    src: url(../assets/font/Starjhol.ttf);
 }
 
 @font-face {
     font-family: 'jedi solid';
-    src: url(../../src/assets/font/Starjedi.ttf);
+    src: url(../assets/font/Starjedi.ttf);
 }
 
 body {
-    background-image: url(../../src/assets/img/download.png);
+    background-image: url(../assets/img/download.png);
     text-transform: lowercase;
 }
 
@@ -26,7 +26,7 @@ div#content {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    background-image: url(../../src/assets/img/download.png);
+    background-image: url(../assets/img/download.png);
     -webkit-box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.76); 
     box-shadow: 0px 7px 8px 0px rgba(0,0,0,0.76);
     border-bottom: 13px ridge #CBB02A;
