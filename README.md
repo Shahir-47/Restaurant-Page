@@ -41,8 +41,6 @@ The Restaurant-Page application was developed using the following technologies:
 - Webpack
 - npm
 - Git
-- GitHub
-
 
 ## File Structure
 The project files are organized as follows:
