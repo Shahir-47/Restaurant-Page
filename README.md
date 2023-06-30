@@ -26,15 +26,6 @@ The Restaurant-Page application provides the following features:
 - A contact page that allows users to contact the Galactic Cantina restaurant.
 - An about us page that provides information about the Galactic Cantina restaurant.
 - A review page that allows users to leave a review about the Galactic Cantina restaurant.
-- A FAQ page that provides answers to frequently asked questions about the Galactic Cantina restaurant.## Features
-The Restaurant-Page application provides the following features:
-
-- A navigation bar that allows users to navigate between the various sections of the application.
-- A home page that provides a brief introduction to the Galactic Cantina restaurant.
-- A menu page that displays the various food items available at the Galactic Cantina restaurant.
-- A contact page that allows users to contact the Galactic Cantina restaurant.
-- An about us page that provides information about the Galactic Cantina restaurant.
-- A review page that allows users to leave a review about the Galactic Cantina restaurant.
 - A FAQ page that provides answers to frequently asked questions about the Galactic Cantina restaurant.
 
 ## Website
