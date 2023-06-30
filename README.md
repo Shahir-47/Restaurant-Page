@@ -104,7 +104,7 @@ The Restaurant-Page application can be used to explore the various sections of t
 - [npm](https://www.npmjs.com/)
 
 ## License
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 For any issues or further information, please refer to the source code repository or contact me at [ahmeds@dickinson.edu].
