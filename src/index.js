@@ -1,6 +1,6 @@
-import './normalize.css';
-import './style.css';
-import {navigationBar, intro, overview, reviews, contact, footer} from './home.js';
+import './css/normalize.css';
+import './css/home.css';
+import {navigationBar, intro, overview, reviews, contact, footer} from './pages/home.js';
 
 
 navigationBar();
