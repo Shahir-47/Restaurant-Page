@@ -105,6 +105,7 @@
     font-weight: 900;
     font-size: 1.3rem;
     margin: 0;
+    cursor: pointer;
 }
 
 .more-reviews:hover,
