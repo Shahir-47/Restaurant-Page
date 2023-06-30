@@ -14,13 +14,11 @@ export const pageLoad = () => {
         logo.src = Icon;
         logo.alt = 'Galactic Cantina logo';
         const logoLink = document.createElement('a');
-        logoLink.href = '#';
         logoLink.appendChild(logo);
         logoBox.appendChild(logoLink);
         const logoText = document.createElement('h1');
         logoText.textContent = 'Galactic Cantina';
         const logoLink2 = document.createElement('a');
-        logoLink2.href = '#';
         logoLink2.appendChild(logoText);
         logoBox.appendChild(logoLink2);
 
@@ -92,7 +90,7 @@ export const pageLoad = () => {
 
         document.querySelector('div#content').appendChild(footer);
     };
-    
+
     navigationBar();
     footer();
 };
