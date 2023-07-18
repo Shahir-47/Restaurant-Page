@@ -145,18 +145,15 @@
 
 .reviews .reviews-cards .switch-button:hover {
     background-color: rgba(128, 128, 128, 0.678);
-    filter: brightness(1.2);
 }
 
 .reviews .reviews-cards .switch-button:active {
     background-color: rgba(128, 128, 128, 0.878);
-    filter: brightness(1.4);
 }
 
 .reviews .reviews-cards .switch-button:disabled:hover,
 .reviews .reviews-cards .switch-button:disabled {
     background-color: rgba(128, 128, 128, 0.278);
-    filter: brightness(0.8);
 }
 
 .disabled-btn {
@@ -166,7 +163,6 @@
     border: #CBB02A;
     border-radius: 0px;    
     background-color: rgba(128, 128, 128, 0.278);
-    filter: brightness(0.8);
     cursor: not-allowed;
 }
 
